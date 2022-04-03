@@ -1,0 +1,60 @@
+#include <unistd.h>
+
+void ft_putchar(int c);
+
+void rush(int columns, int rows)
+{
+int horizontal;
+int vertical;
+
+horizontal = 1;
+
+while (horizontal <= rows)
+{
+		vertical=1;
+		while (vertical <= columns)
+		{
+			if (horizontal ==1)
+				{
+					 if (vertical==1 )
+					 {ft_putchar(65);
+					 }
+					 else if (vertical==columns)
+					 {ft_putchar('C');
+					 }
+					else
+					{ft_putchar(66);
+					}
+
+		        }
+			else
+			{
+				if (horizontal==rows)
+				{
+					if(vertical==1)
+					{ft_putchar('C');
+					}
+				   else if(vertical==columns)
+                {ft_putchar(65);
+                }
+					else
+					{ft_putchar(66);}
+				}
+			else if(vertical==1 || vertical==columns)
+            {
+             ft_putchar(66);
+                    }
+				else
+				{
+				ft_putchar(32);// hollow space
+				}
+				}
+				vertical++;
+
+
+		}
+
+	ft_putchar(10);//newline
+	horizontal++;
+}
+}
