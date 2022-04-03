@@ -2,24 +2,24 @@
 
 void ft_putchar(int c);
 
-void rush(int columns, int rows)
+void rush(int x, int y) //x=columns y=rows  vertical=a horizontal=b
 {
-int horizontal;
-int vertical;
+int a;
+int b;
 
-horizontal = 1;
-vertical = 1;
-while (horizontal <= rows)
+b = 1;
+
+while (b <= y)
 {
-
-		while (vertical <= columns)
+	a=1;
+	while (a <= x)
 		{
-			if (horizontal ==1)
+			if (b ==1)
 				{
-					 if (vertical==1 )
+					 if (a==1 )
 					 {ft_putchar(65);
 					 }
-					 else if (vertical==columns)
+					 else if (a==x)
 					 {ft_putchar('C');
 					 }
 					else
@@ -29,18 +29,18 @@ while (horizontal <= rows)
 		        }
 			else
 			{
-				if (horizontal==rows)
+				if (b==y)
 				{
-					if(vertical==1)
+					if(a==1)
 					{ft_putchar('C');
 					}
-				   else if(vertical==columns)
+				   else if(a==x)
                 {ft_putchar(65);
                 }
 					else
 					{ft_putchar(66);}
 				}
-			else if(vertical==1 || vertical==columns)
+			else if(a==1 || a==y)
             {
              ft_putchar(66);
                     }
@@ -49,10 +49,12 @@ while (horizontal <= rows)
 				ft_putchar(32);// hollow space
 				}
 				}
-				vertical++;
+				a++;
+
+
 		}
 
 	ft_putchar(10);//newline
-	horizontal++;
+	b++;
 }
 }
