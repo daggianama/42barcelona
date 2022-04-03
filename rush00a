@@ -40,7 +40,7 @@ while (b <= y)
 					else
 					{ft_putchar(66);}
 				}
-			else if(a==1 || a==y)
+			else if(a==1 || a==x)
             {
              ft_putchar(66);
                     }
