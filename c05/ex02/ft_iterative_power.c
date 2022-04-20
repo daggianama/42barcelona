@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 21:00:53 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/04/20 17:03:55 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/04/20 17:21:15 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/04/20 18:29:02 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_iterative_factorial(int nb)
+int	ft_iterative_power(int nb, int power)
 {
-	int	f;
+	int	r;
 
-	f = 1;
-	if (nb < 0)
+	r = 1;
+	if (power == 0)
+		return (1);
+	if (power < 1)
 		return (0);
-	while (nb > 0)
+	while (power > 0)
 	{
-		f *= nb;
-		nb--;
+		r *= nb;
+		power--;
 	}
-	return (f);
+	return (r);
 }
