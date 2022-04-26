@@ -1,36 +1,22 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/08 13:31:08 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/04/08 14:02:24 by dmadrid-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 #include <stdio.h>
 
-void ft_swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
-	int s;
+	int c;
 
-	s = *b;
-    *b = *a;
-	*a = s;	
+	c = *a;
+	*a = *b;
+	*b = c;
 }
 
-int main()
+int		main(void)
 {
 	int a;
-   	int b;
-	a	= 2;
-	 b = 4;
-	
-	printf("a = %d\n", a);
-	printf("b = %d\n", b);
-	ft_swap(&a, &b);
-	printf("a = %d\n", a);
-	printf("b =  %d\n", b);
-}
+	int b;
 
+	a = 1;
+	b = 2;
+	printf("before: %d %d\n", a, b);
+	ft_swap(&a, &b);
+	printf("before: %d %d\n", a, b);
+}
