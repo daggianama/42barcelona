@@ -9,12 +9,14 @@
 **	allocated memory. The allocated memory is filled with bytes of value
 **	zero.
 */
-void *ft_calloc(size_t n, size_t s)
+void *ft_calloc(size_t count, size_t s)
 {
-    void *s;
-  
-    s = malloc(num * s);
-    if(s != NULL)
-        memset(s, 0, num * s);
-    return s;
+    void *dst;
+    size_t  ts;
+    
+    ts = count * s;
+    if(!(dst = (malloc(ts)))  //si es NULL
+         return (0);
+    ft_memset(dst, 0, ts);
+    return dst;
 }
