@@ -6,33 +6,22 @@
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 15:50:25 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/05/12 15:57:47 by dmadrid-         ###   ########.fr       */
+/*   Updated: 2022/05/16 14:39:40 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-//#include <string.h>
+#include "libft.h"
 
-char	*ft_memset(char *str, int c, size_t n)
+void	*ft_memset(void *str, int c, size_t n)
 {
-	int	i;
-	char *p;
+	size_t		i;
+	char		*p;
 
 	i = 0;
-	p = (char*)str;
+	p = (char *)str;
 	while (i < n)
 	{
 		p[i] = c;
 		i++;
 	}
 	return (str);
-}
-
-int main()
-{
-	char str[10] = "Hola mundo";
-
-	ft_memset(str, '$', 6);
-//	memset(str, '$', 6);
-	printf("%s", str);
-	return (0);
 }

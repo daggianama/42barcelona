@@ -5,21 +5,32 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/05/12 13:32:14 by dmadrid-          #+#    #+#              #
-#    Updated: 2022/05/12 19:00:34 by dmadrid-         ###   ########.fr        #
+#    Created: 2022/05/13 16:25:39 by dmadrid-          #+#    #+#              #
+#    Updated: 2022/05/22 17:37:05 by dmadrid-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-# -*- Makefile -*-
+CC = gcc
+SRC = ft_isalpha.c ft_isdigit.c	ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c
+OBJ = ${SRC:.c=.o}
+NAME = libft.a
+DEP = libft.h
+RM = rm -f
+FLAGS = -Wall -Werror -Wextra -c -I $(DEP)
 
-CFNT = is_functions.c string_functions.c
-BINARY = libft.a
+all: $(NAME)
 
-FLAGS = -g -Wall -Werror -Wextra
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
-libft.o: libft.h $(CFNT)
-	gcc $(FLAGS) -c $(CFNT)
+$(OBJ): $(SRC) $(DEP)
+	$(CC) $(FLAGS) $(SRC)
 
-libft.a: libft.o
-	ar rcs libft.a libft.o
 clean:
-	rm -f $(BINARY) $(OBJS)
+	$(RM)  $(OBJ)
+
+fclean: clean
+		$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean  fclean re

@@ -6,30 +6,34 @@
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 18:47:56 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/04/20 16:31:57 by dmadrid-         ###   ########.fr       */
+/*   Updated: 2022/05/20 18:16:51 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	n;
-	int	s;
+#include "libft.h"
 
+int	ft_atoi(const char *str)
+{
+	int				i;
+	int				n;
+	int				s;
+	unsigned char	*pt;
+
+	pt = (unsigned char *)str;
 	s = 1;
 	n = 0;
 	i = 0;
-	while (str[i] == '\f' || str[i] == '\t' || str[i] == '\v'
-		|| str[i] == '\r' || str[i] == ' ' || str[i] == '\n')
+	while (pt[i] == '\f' || pt[i] == '\t' || pt[i] == '\v'
+		|| pt[i] == '\r' || pt[i] == ' ' || pt[i] == '\n')
 		i++;
-	while (str[i] == '+' || str[i] == '-')
+	if (pt[i] == '+' || pt[i] == '-')
 	{
-		if (str[i] == '-')
+		if (pt[i] == '-')
 			s = s * -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (pt[i] >= '0' && pt[i] <= '9')
 	{
-		n = (n * 10) + (str[i] - '0');
+		n = (n * 10) + (pt[i] - '0');
 		i++;
 	}
 	return (n * s);

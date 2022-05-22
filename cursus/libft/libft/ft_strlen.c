@@ -5,11 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 16:50:02 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/05/11 15:40:45 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/05/13 17:06:10 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/05/16 15:48:13 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_strlen(char *s)
+#include  "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -20,26 +22,3 @@ int	ft_strlen(char *s)
 	}
 	return (i);
 }
-
-/*
-int	main(void)
-{
-	char *str = "This amazing string is 42 characters long.";
-	char *str_test = "This amazing string is 42 characters long.";
-	int	len;
-
-	printf("------------------TEST 1-------------------\n");
-	while(*str != '\0')
-	{
-		printf("%c", *str);
-		str++;
-	}
-	printf("\n");
-
-	len = ft_strlen(str_test);
-	if (len == 42)
-		printf("Test passed! The input string is %d char in length\n", len);
-	else
-		printf("Test failed! The input string is %d char in length\n", len);
-	return (0);
-}*/

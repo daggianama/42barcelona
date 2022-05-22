@@ -1,13 +1,31 @@
-char	*ft_strchr( const char *s, int c)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/16 13:23:25 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/05/20 18:22:14 by dmadrid-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
+
+char	*ft_strchr(const char *s, int a)
 {
-	while (*s)
+	int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		if (*s == c)
-			return ((char *)s);
-		s++;
+		if (s[i] == (char)a)
+			return (&((char *)s)[i]);
+		i++;
 	}
-	if (c == '\0')
-		return ((char *)s);
+	if ((char)a == '\0')
+		if (s[i] == (char)a)
+			return (&((char *)s)[i]);
+	return (0);
 }
 /*
  The strchr() function locates the first occurrence
