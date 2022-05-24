@@ -1,7 +1,13 @@
 #include "libft.h"
 #include <stdlib.h>
 
-int 
+int ft_countdiv(char s, char c)
+{
+}
+
+int ft_countstr(char *s, char c)   //devuelv cantidad de divisores = c/strings
+{
+}
 
 
 char **ft_split(char const *s, char c)
