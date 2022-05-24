@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 17:39:54 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/05/16 15:55:07 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/05/16 12:38:42 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/05/20 20:20:48 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isdigit(int a)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	if (a >= '0' && a <= '9')
-		return (1);
-	else
-		return (0);
+	size_t			i;
+	unsigned char	*pt1;
+	unsigned char	*pt2;
+
+	if (dst < src)
+		return (ft_memcpy(dst, src, n));
+	pt1 = (unsigned char *)src;
+	pt2 = (unsigned char *)dst;
+	i = 0;
+	if (n == '\0' || pt1 == pt2)
+		return (dst);
+	while (n--)
+	{
+		pt2[n] = pt1[n];
+	}
+	return (dst);
 }
-/* retorna 0 si el caracter esta entre
-  0 y 9 */
+/* A function to copy block of 'n' bytes from source
+ address 'src' to destination address 'dest'. */

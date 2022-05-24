@@ -1,0 +1,59 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 MAKEFILE\
+\
+?? Is a way to automatize  and simplify files compiling them with their libraries. It gavels and instructions inside for the program.\
+STRUCTURE\
+Objetivo: dependencias  (archivos que necesitan existir antes de crear o para que funcione le 		programa files nombre.o)\
+		instrucciones  (como comandos de terminar que da instruccionesque makefile ejecutara 		por nosotros autom\'e1tico)\
+Objetivo: dependencias \
+		instrucciones\
+Etc etc \
+Comentarios: se escriben al inicio con #\'85\
+STEPS\
+1. Have a main correct and compile\
+2. create a Makefile with:\
+#(commentaries)\
+/designar funciones/\
+OBJS = main.o function1.o fution2.o\
+BINARY = programa\
+\
+CFLAGS = -g -Wall -Werror -Wextra\
+\
+All: programa\
+\
+Nameofexecutables: $(OBJS)\
+		(tab)	gcc -o $(BINARY) $(OBJS)\
+\
+(Si no tenemos creados los archivos .o /objetos/)\
+Main.o: main.c library.h\
+	(tab)	gcc -c main.c\
+\
+Function1.o: function1.c library.h\
+	(tab)	 gcc -c finction1.c\
+\
+Clean: \
+    (tab) rm -f $(BINARY) $(OBJS)\
+\
+\
+\
+LIBRARIES\
+\
+?? is a collection of header files, exposed for use by other programs. The library therefore consists of an interface expressed in a . h file (named the "header") and an implementation expressed in a . c file.\
+STEPS\
+1. Crear una funci\'f3n o varias \
+2. Guardarlas como archivo .h\
+3. Llamarlas como una libreria con #include \'93\'85h\'94\
+4. Se incluye en la funci\'f3n donde se usara una funci\'f3n dentro de nuestra librer\'eda solo con el nombre de la fila void -int - char.\
+\
+\
+\
+Errors\
+\
+Subsrt\
+}

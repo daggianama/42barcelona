@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 17:28:20 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/05/16 15:54:30 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/05/16 14:13:01 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/05/20 21:29:26 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isalpha(int a)
-{	
-	if (a >= 'A' && a <= 'Z')
-		return (1);
-	else if (a >= 'a' && a <= 'z')
-		return (1);
-	else
-		return (0);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	size_t			i;
+	size_t			j;
+	unsigned char	*h;
+	unsigned char	*n;
+
+	h = (unsigned char *)haystack;
+	n = (unsigned char *)needle;
+	i = 0;
+	if (n[0] == 0)
+		return ((char *)haystack);
+	while (h[i])
+	{	
+		j = 0;
+		while (h[i + j] == n[j] && i + j < len)
+		{
+			if (n[j + 1] == 0)
+				return ((char *)&h[i]);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
-/* verificar si el carácter es un alfabeto o no.
- Devuelve un valor distinto de cero si es un alfabeto; 
- de lo contrario, devuelve 0.
- Por ejemplo, devuelve valores distintos de cero
- para 'a' a 'z' y 'A' a 'Z' y ceros para otros caracteres */

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/22 12:10:49 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/05/22 14:09:55 by dmadrid-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include <stdlib.h>
 #include "libft.h"
+
 /*
-** LIBRARY: <stdlib.h>
 ** SYNOPSIS: memory allocation
 **
 ** DESCRIPTION:
@@ -13,10 +25,12 @@ void *ft_calloc(size_t count, size_t s)
 {
     void *dst;
     size_t  ts;
-    
-    ts = count * s;
-    if(!(dst = (malloc(ts)))  //si es NULL
+  
+	ts = (count * s);
+	dst = malloc(ts + 1);
+    if (dst == NULL)           //si es NULL
          return (0);
-    ft_memset(dst, 0, ts);
-    return dst;
+	ft_memset(dst, 0, ts);
+    return (dst);
+  //  return (dst);
 }

@@ -6,10 +6,15 @@
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:09:08 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/05/09 19:13:00 by dmadrid-         ###   ########.fr       */
+/*   Updated: 2022/05/16 15:56:04 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_isascii (int a)
+#include "libft.h"
+
+int	ft_isascii(int a)
 {
-	
+	if (a >= 0 && a <= 127)
+		return (1);
+	else
+		return (0);
 }

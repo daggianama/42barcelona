@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/22 12:14:39 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/05/24 16:29:27 by dmadrid-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "libft.h"
+#include <stdlib.h>
+
 /*
 ** SYNOPSIS: save a copy of a string (with malloc, size-bounded)
 **
@@ -12,8 +25,13 @@
 */
 char *ft_strdup (const char *s)
 {
-    char *pt = malloc (strlen (s) + 1);   // allocate memory
-    if (pt != NULL)
-        strcpy (pt,s);                    // copy string
-    return pt;                            // return the memory
+    char	*str;
+	size_t	size;
+
+	size = (ft_strlen(s) + 1);
+	str = malloc(sizeof(char) * size);         // allocate memory
+    if (!str)
+		return (NULL);
+    ft_strlcpy(str, s, size);                    // copy string
+    return (str);                            // return the memory
 }

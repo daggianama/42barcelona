@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 17:28:20 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/05/16 15:54:30 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/05/13 17:09:20 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/05/20 18:20:59 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isalpha(int a)
-{	
-	if (a >= 'A' && a <= 'Z')
-		return (1);
-	else if (a >= 'a' && a <= 'z')
-		return (1);
-	else
-		return (0);
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t			i;
+	unsigned char	*pt1;
+	unsigned char	*pt2;
+
+	pt1 = (unsigned char *)dst;
+	pt2 = (unsigned char *)src;
+	i = 0;
+	if (pt1 == NULL && pt2 == NULL)
+		return (dst);
+	while (i < n)
+	{
+		pt1[i] = pt2[i];
+		i++;
+	}
+	return (dst);
 }
-/* verificar si el carácter es un alfabeto o no.
- Devuelve un valor distinto de cero si es un alfabeto; 
- de lo contrario, devuelve 0.
- Por ejemplo, devuelve valores distintos de cero
- para 'a' a 'z' y 'A' a 'Z' y ceros para otros caracteres */
+/*to copy a block of data from a source address to a 
+destination address*/

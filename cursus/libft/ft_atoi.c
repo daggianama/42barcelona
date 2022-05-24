@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 13:07:29 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/05/24 18:02:46 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/04/18 18:47:56 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/05/20 18:16:51 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+int	ft_atoi(const char *str)
 {
-	char	*dst;
-	size_t	i;
-	size_t 	size;
+	int				i;
+	int				n;
+	int				s;
+	unsigned char	*pt;
 
+	pt = (unsigned char *)str;
+	s = 1;
+	n = 0;
 	i = 0;
-	dst = (char *)malloc(sizeof(unsigned char) * (len + 1));
-	size = ft_strlen(s);
-	if (dst == NULL)
-		return (NULL);
-	if (start > size || size < len || !*s)
-		return ("");
-	ft_strlcpy(dst, &s[start], (len + 1));
-	return (dst);
-	free(dst);
+	while (pt[i] == '\f' || pt[i] == '\t' || pt[i] == '\v'
+		|| pt[i] == '\r' || pt[i] == ' ' || pt[i] == '\n')
+		i++;
+	if (pt[i] == '+' || pt[i] == '-')
+	{
+		if (pt[i] == '-')
+			s = s * -1;
+		i++;
+	}
+	while (pt[i] >= '0' && pt[i] <= '9')
+	{
+		n = (n * 10) + (pt[i] - '0');
+		i++;
+	}
+	return (n * s);
 }

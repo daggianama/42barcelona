@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 17:28:20 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/05/16 15:54:30 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/04/14 12:25:59 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/05/20 18:23:42 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isalpha(int a)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {	
-	if (a >= 'A' && a <= 'Z')
-		return (1);
-	else if (a >= 'a' && a <= 'z')
-		return (1);
-	else
+	size_t	i;
+
+	i = 0;
+	if (n == 0)
 		return (0);
+	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n - 1)
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-/* verificar si el carácter es un alfabeto o no.
- Devuelve un valor distinto de cero si es un alfabeto; 
- de lo contrario, devuelve 0.
- Por ejemplo, devuelve valores distintos de cero
- para 'a' a 'z' y 'A' a 'Z' y ceros para otros caracteres */
+/*
+ The strcmp() and strncmp() functions lexicographically 
+compare the null-terminated strings s1 and
+     s2.*/

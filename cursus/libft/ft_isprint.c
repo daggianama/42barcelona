@@ -5,11 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 19:13:16 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/05/09 19:29:52 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/05/16 16:01:35 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/05/20 18:17:25 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_isprint (int a)
+#include "libft.h"
+
+int	ft_isprint(int a)
 {
-	if (a 
+	if (a >= 32 && a < 127)
+		return (1);
+	else
+		return (0);
 }

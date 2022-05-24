@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 17:28:20 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/05/16 15:54:30 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/05/17 17:15:28 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/05/17 17:41:49 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isalpha(int a)
-{	
-	if (a >= 'A' && a <= 'Z')
-		return (1);
-	else if (a >= 'a' && a <= 'z')
-		return (1);
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+	size_t	ld;
+
+	ld = ft_strlen(dest);
+	i = ft_strlen(dest);
+	j = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	while (src[j] != '\0' && i < size - 1)
+	{
+		((unsigned char *)dest)[i] = ((unsigned char *)src)[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	if (size < ft_strlen(dest))
+		return (size + ft_strlen(src));
 	else
-		return (0);
+		return (ld + ft_strlen(src));
 }
-/* verificar si el carácter es un alfabeto o no.
- Devuelve un valor distinto de cero si es un alfabeto; 
- de lo contrario, devuelve 0.
- Por ejemplo, devuelve valores distintos de cero
- para 'a' a 'z' y 'A' a 'Z' y ceros para otros caracteres */

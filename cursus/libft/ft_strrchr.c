@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 17:28:20 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/05/16 15:54:30 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/05/16 13:22:02 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/05/20 18:25:07 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isalpha(int a)
+char	*ft_strrchr(const char *s, int a)
 {	
-	if (a >= 'A' && a <= 'Z')
-		return (1);
-	else if (a >= 'a' && a <= 'z')
-		return (1);
-	else
-		return (0);
+	size_t	i;
+
+	i = ft_strlen(s);
+	if (s[i] == 0 && (char)a == 0)
+		return (&((char *)s)[i]);
+	while (i > 0)
+	{	
+		i--;
+		if (s[i] == (char)a)
+			return (&((char *)s)[i]);
+	}
+	return (0);
 }
-/* verificar si el carácter es un alfabeto o no.
- Devuelve un valor distinto de cero si es un alfabeto; 
- de lo contrario, devuelve 0.
- Por ejemplo, devuelve valores distintos de cero
- para 'a' a 'z' y 'A' a 'Z' y ceros para otros caracteres */
+/*
+The strrchr() function is identical to strchr(),
+ except it locates the last occurrence of c.
+It counts from back to beginning to find the last coincidential c.
+*/
