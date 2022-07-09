@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 17:55:58 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/07/09 11:57:15 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/06/21 18:27:07 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/07/07 17:01:21 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef  LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
+#include <unistd>
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdarg.h>
-
-int		ft_printf(char const *a, ...);
-int		ft_putchar_p(char c);
-int		ft_putstr(char *s);
-int		ft_putnbr(int nb);
-
-#endif
+void	ft_putchar(char c)
+{
+	if (write(1, &c, 1) != 1)
+		return (-1);
+	return (1);
+}

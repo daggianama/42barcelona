@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 17:55:58 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/07/09 11:57:15 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/07/07 17:25:49 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/07/07 17:36:04 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef  LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-
-#include <stdio.h>
 #include <unistd.h>
-#include <stdlib.h>
-#include <stdarg.h>
+#include "libftprintf.h"
 
-int		ft_printf(char const *a, ...);
-int		ft_putchar_p(char c);
-int		ft_putstr(char *s);
-int		ft_putnbr(int nb);
+int	ft_putstr(char *s)
+{
+	int	i;
 
-#endif
+	i = 0;
+	if (s == NULL)
+		return (write(1, "(null)", 6));
+	while (s[i] != '\0')
+	{
+		if (write(1, &s[i], 1) == -1)
+			return (-1);
+		i++;
+	}
+	return (i);
+}
