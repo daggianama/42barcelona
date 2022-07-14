@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_p.c                                      :+:      :+:    :+:   */
+/*   ft_putnbru_p.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 11:00:03 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/07/14 18:35:51 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/07/14 18:49:10 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/07/14 18:54:38 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	ft_cases(int nb)
+int	ft_cases(unsigned int nb)
 {
 	if (nb == 0)
 	{
@@ -28,7 +29,7 @@ int	ft_cases(int nb)
 	return (0);
 }
 
-int	ft_putnbr_p(int nb)
+int	ft_putnbru_p(unsigned int nb)
 {
 	char	i;
 	int		count;
