@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putint.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 18:27:07 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/07/18 17:23:58 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/07/19 17:08:59 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/07/19 17:09:48 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	ft_putchar_p(char c)
+int	ft_putint(int i)
 {
-	return (write(1, &c, 1));
+	int count = 0;
+	if (i < 0)
+	{
+		count += ft_putchar('-');
+		i *= -1;
+	}
+	count += ft_putnbr(i, 10);
+	return (count);
 }

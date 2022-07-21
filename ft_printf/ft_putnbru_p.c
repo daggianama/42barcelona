@@ -6,25 +6,19 @@
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 18:49:10 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/07/14 18:54:38 by dmadrid-         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:07:59 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_cases(unsigned int nb)
+static int	ft_cases(unsigned int nb)
 {
 	if (nb == 0)
 	{
 		if (write(1, "0", 1) != 1)
 			return (-1);
 		return (1);
-	}
-	if (nb == -2147483648)
-	{
-		if (write (1, "-2147483648", 11) == -1)
-			return (-1);
-		return (11);
 	}
 	return (0);
 }
@@ -41,11 +35,6 @@ int	ft_putnbru_p(unsigned int nb)
 	if (cases == -1)
 		return (-1);
 	count += cases;
-	while (nb < 0 && nb > -2147483648)
-	{
-		count += write(1, "-", 1);
-		nb = -1 * nb;
-	}
 	if (nb >= 10)
 	{
 		ft_putnbr_p(nb / 10);
