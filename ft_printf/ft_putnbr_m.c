@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putnbr_X.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 17:55:58 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/08/02 17:11:08 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/08/01 15:26:00 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/08/18 18:57:39 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef  FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+int	ft_putnbr_m(unsigned int n, int base)
+{
+	char	*print_base;
+	int		count;
+	int		c;
 
-int		ft_printf(char const *a, ...);
-int		ft_putchar_p(char c);
-int		ft_putstr_p(char *s);
-int		ft_putnbr_p(unsigned long n, int base);
-int		ft_putint(int i);
-int		ft_putnbr_m(unsigned int n, int base);
-int		ft_putnbr(unsigned int n, int base);
-
-#endif
+	print_base = "0123456789ABCDEF";
+	c = n % base;
+	count = 0;
+	if (n / base > 0)
+		count += ft_putnbr_m(n / base, base);
+	if (count == -1)
+		return (-1);
+	count += ft_putchar_p(print_base[c]);
+	if (count == -1)
+		return (-1);
+	return (count);
+}

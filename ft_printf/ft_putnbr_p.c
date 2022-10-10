@@ -6,12 +6,12 @@
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 11:00:03 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/07/19 17:12:16 by dmadrid-         ###   ########.fr       */
+/*   Updated: 2022/08/18 19:00:35 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	ft_putnbr_p(unsigned  n, int base)
+int	ft_putnbr_p(unsigned long n, int base)
 {
 	char	*print_base;
 	int		count;
@@ -21,7 +21,13 @@ int	ft_putnbr_p(unsigned  n, int base)
 	c = n % base;
 	count = 0;
 	if (n / base > 0)
-		count += ft_putnbr(n / base, base);	
-	count += ft_putchar( print_base[c]);
+	{
+		count += ft_putnbr_p(n / base, base);
+		if (count == -1)
+			return (-1);
+	}
+	count += ft_putchar_p(print_base[c]);
+	if (count == -1)
+		return (-1);
 	return (count);
 }

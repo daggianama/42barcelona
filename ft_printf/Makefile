@@ -6,11 +6,11 @@
 #    By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/21 16:15:37 by dmadrid-          #+#    #+#              #
-#    Updated: 2022/07/14 18:51:06 by dmadrid-         ###   ########.fr        #
+#    Updated: 2022/08/02 17:08:52 by dmadrid-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 CC = gcc
-SRC = ft_putchar_p.c ft_putstr_p.c ft_printf.c ft_putnbr_p.c ft_putnbru_p.c
+SRC = ft_putchar_p.c ft_putstr_p.c ft_printf.c ft_putnbr_p.c ft_putnbr_m.c ft_putint.c ft_putnbr.c
 OBJ = ${SRC:.c=.o}
 OBJB = ${BON:.c=.o}
 NAME = libftprintf.a
