@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/08 17:12:34 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/09/28 18:24:41 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/09/29 17:25:59 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/09/29 17:27:03 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef  GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef  GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>

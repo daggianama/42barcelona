@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmadrid- <dmadrid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/04 14:52:27 by dmadrid-          #+#    #+#             */
-/*   Updated: 2022/09/29 17:21:03 by dmadrid-         ###   ########.fr       */
+/*   Created: 2022/09/29 17:13:35 by dmadrid-          #+#    #+#             */
+/*   Updated: 2022/10/03 17:15:31 by dmadrid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+
+#include "get_next_line_bonus.h"
 #include <stdlib.h>
 
 char	*clean_storage(char *storage)
@@ -35,9 +36,9 @@ char	*clean_storage(char *storage)
 		return (NULL);
 	}
 	new_storage = ft_substr(storage, len, (ft_strlen(storage) - len));
-	free (storage);
 	if (!new_storage)
 		return (NULL);
+	free (storage);
 	return (new_storage);
 }
 
@@ -78,26 +79,29 @@ char	*addstorage(int fd, char *storage)
 	}
 	free(buffer);
 	if (byte == -1)
+	{
+		free(storage);
 		return (NULL);
+	}
 	return (storage);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*storage;
+	static char	*storage[1024];
 	char		*line;
 
 	if (fd < 0)
 		return (NULL);
-	storage = addstorage(fd, storage);
-	if (!storage)
+	storage[fd] = addstorage(fd, storage[fd]);
+	if (!storage[fd])
 		return (NULL);
-	line = separate_line(storage);
+	line = separate_line(storage[fd]);
 	if (line == NULL)
 	{
-		free (storage);
+		free (storage[fd]);
 		return (0);
 	}
-	storage = clean_storage(storage);
+	storage[fd] = clean_storage(storage[fd]);
 	return (line);
 }
